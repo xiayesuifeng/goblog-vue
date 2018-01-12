@@ -10,9 +10,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "material-components-web": "^0.26.0",
     "vue": "^2.5.2",
-    "vue-mdc-adapter": "^0.7.3",
+    "vue-mdc-adapter": "^0.7.5",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
