@@ -25,7 +25,7 @@
           </mdc-card-header>
           <mdc-card-text v-html="article.Desc"></mdc-card-text>
           <mdc-card-actions>
-            <mdc-card-action-button>{{ article.Tag }}</mdc-card-action-button>
+            <mdc-card-action-button @click="$router.push({path:'/tag/'+article.Tag })">{{ article.Tag }}</mdc-card-action-button>
           </mdc-card-actions>
         </mdc-card>
     </main>
@@ -86,6 +86,7 @@
           })
       },
       catArticle(article){
+        window.localStorage.setItem('article',JSON.stringify(article))
         this.$router.push({path:'/article/'+article.Id})
       },
       unixToTime(value,fmt){
