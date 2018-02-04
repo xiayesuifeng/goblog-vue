@@ -7,8 +7,9 @@
 
     <mdc-drawer slot="drawer" class="drawer">
       <div class="header">
-      <img src="../assets/logo.png" height="192" width="192">
+      <img src="@/assets/logo.png" height="192" width="192">
         <span v-text="blogName"></span>
+        <mdc-button v-if="token" @click="logout">注销</mdc-button>
       </div>
       <mdc-drawer-list permanent>
         <mdc-drawer-item active to="/">All</mdc-drawer-item>
@@ -28,6 +29,7 @@
             <mdc-card-action-button @click="$router.push({path:'/tag/'+article.Tag })">{{ article.Tag }}</mdc-card-action-button>
           </mdc-card-actions>
         </mdc-card>
+      <mdc-fab v-if="token" icon="add" class="fab-add" @click="$router.push({path:'/add'})"></mdc-fab>
     </main>
 
   </mdc-layout-app>
@@ -40,7 +42,8 @@
       return {
         tags: [],
         articles: [],
-        blogName :''
+        blogName :'',
+        token : window.localStorage.getItem('token')
       }
     },
     created() {
@@ -108,6 +111,10 @@
           }
         }
         return fmt;
+      },
+      logout(){
+        window.localStorage.setItem('token','')
+        this.token=''
       }
     }
 }
@@ -141,5 +148,11 @@ a {
 
 .drawer {
   text-align: center;
+}
+.fab-add {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  z-index: 99999999;
 }
 </style>
