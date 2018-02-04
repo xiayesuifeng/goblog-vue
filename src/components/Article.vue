@@ -8,10 +8,10 @@
     <main>
       <mdc-fab style="margin: 10px" icon="arrow_back" to="/"></mdc-fab>
       <mdc-card class="card">
-        <mdc-card-media src="/assets/welcome_card.jpg" :height="150" dark>
-          <mdc-card-title v-text="article.Name"></mdc-card-title>
+        <mdc-card-media src="/static/welcome_card.jpg" :height="200">
+          <mdc-card-title style="color: white" v-text="article.Name"></mdc-card-title>
         </mdc-card-media>
-        <div>
+        <div style="margin: 20px">
           <span v-text="'创建于'+ unixToTime(article.CreateTime,'yyyy-MM-dd')"></span>
           <span v-text="'最后编辑于'+ unixToTime(article.EditTime,'yyyy-MM-dd')"></span>
           <span style="margin-right: 0; margin-left: 60%" v-text="article.Tag"></span>
