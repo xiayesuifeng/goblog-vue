@@ -150,7 +150,7 @@ a {
   text-align: center;
 }
 .fab-add {
-  position: absolute;
+  position: fixed;
   right: 40px;
   bottom: 40px;
   z-index: 99999999;
