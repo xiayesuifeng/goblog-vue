@@ -2,6 +2,10 @@
 
 > goblog前端
 
+## goblog后端
+
+[goblog](https://github.com/1377195627/goblog.git)
+
 ## Build Setup
 
 ``` bash
@@ -19,3 +23,7 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## License
+
+FlyOS cliboard is licensed under [GPLv3](LICENSE).
