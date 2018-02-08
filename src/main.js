@@ -13,6 +13,13 @@ Vue.use(VueMDCAdapter)
 
 Vue.prototype.$http = axios
 
+axios.get("/api/name")
+  .then(r=>{
+    if (r.data === 'blog no install') {
+      router.push({path:"/install"})
+    }
+  })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
