@@ -109,6 +109,7 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-top: 200px;
+    background: white;
   }
 
   .fab-edit {

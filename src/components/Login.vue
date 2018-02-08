@@ -55,5 +55,6 @@
   .card {
     margin: 200px auto auto;
     width: 500px;
+    background: white;
   }
 </style>

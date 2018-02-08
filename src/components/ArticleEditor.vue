@@ -170,6 +170,7 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-top: 5%;
+    background: white;
   }
 
   .fab-done {

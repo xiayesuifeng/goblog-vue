@@ -112,10 +112,16 @@
         }
         return fmt;
       },
-      logout(){
-        window.localStorage.setItem('token','')
-        this.token=''
+      logout() {
+        window.localStorage.setItem('token', '')
+        this.token = ''
       }
+    },
+    beforeCreate() {
+      document.querySelector('body').setAttribute('style', 'background:#fff')
+    },
+    beforeDestroy() {
+      document.querySelector('body').setAttribute('style', '')
     }
 }
 </script>
