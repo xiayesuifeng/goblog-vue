@@ -26,4 +26,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## License
 
-FlyOS cliboard is licensed under [GPLv3](LICENSE).
+goblog-vue is licensed under [GPLv3](LICENSE).
