@@ -23,7 +23,7 @@
         </mdc-card-text>
       </mdc-card>
       <mdc-fab class="fab-done" icon="done" @click="onSubmit"></mdc-fab>
-      <mdc-snackbar ref="snackbar" style="color: red"/>
+      <mdc-snackbar ref="snackbar" class="snackbar"/>
     </main>
   </mdc-layout-app>
 </template>
@@ -179,6 +179,7 @@
     position: fixed;
     right: 40px;
     bottom: 40px;
+    z-index: 99999999;
   }
 
   .editor {
@@ -191,5 +192,9 @@
 
   .article-title {
     width: 85.6%;
+  }
+
+  .snackbar {
+    z-index: 99999999;
   }
 </style>
