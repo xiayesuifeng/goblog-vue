@@ -72,7 +72,6 @@
             });
             editor.on('load', () => {
               setTimeout(() => {
-                this.editorLoaded = true;
                 editor.setMarkdown(this.context);
               }, 0);
             });
@@ -106,7 +105,6 @@
           }).then(r => {
             console.log(r.data)
             if (r.data.status == 'no authorized') {
-              this.$refs.snackbar.show({message: '请登录!'})
               this.saveData()
               this.$router.push({path: "/login"})
             } else if (r.data.status != 'success') {
@@ -124,7 +122,6 @@
           }).then(r => {
             console.log(r.data)
             if (r.data.status == 'no authorized') {
-              this.$refs.snackbar.show({message: '请登录!'})
               this.saveData()
               this.$router.push({path: "/login"})
             } else if (r.data.status != 'success') {
