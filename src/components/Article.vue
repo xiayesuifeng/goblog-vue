@@ -18,6 +18,8 @@
         </div>
         <mdc-card-text v-html="context"></mdc-card-text>
       </mdc-card>
+      <mdc-fab v-if="token" icon="edit" class="fab-edit" @click="onEdit"></mdc-fab>
+      <mdc-fab v-if="token" icon="delete" class="fab-del" @click="onDelete"></mdc-fab>
     </main>
 
   </mdc-layout-app>
@@ -29,7 +31,9 @@
       data(){
           return {
             article:{},
-            context:''
+            context:'',
+            token : window.localStorage.getItem('token'),
+            rawMd:''
           }
       },
       created(){
@@ -39,6 +43,15 @@
           .then(r=>{
             this.context = r.data
           })
+
+        var url = '/api/article/uuid/'+this.article.Uuid
+        this.$http.get(url,{
+          params:{
+            'mode':'raw'
+          }
+        }).then((response)=>{
+          this.rawMd = response.data
+        })
       },
       methods: {
         unixToTime(value,fmt){
@@ -60,6 +73,22 @@
             }
           }
           return fmt;
+        },
+        onEdit(){
+          this.saveData()
+          this.$router.push({path:'/edit'})
+        },
+        onDelete(){
+
+        },
+        saveData(){
+          let article = {
+            oldName:this.article.Name,
+            name: this.article.Name,
+            tag: this.article.Tag,
+            context: this.rawMd
+          }
+          window.localStorage.setItem('postdata',JSON.stringify(article))
         }
       }
     }
@@ -70,5 +99,19 @@
     margin-right: 10%;
     margin-left: 10%;
     margin-top: 200px;
+  }
+
+  .fab-edit {
+    position: fixed;
+    right: 40px;
+    bottom: 110px;
+    z-index: 99999999;
+  }
+
+  .fab-del {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 99999999;
   }
 </style>
