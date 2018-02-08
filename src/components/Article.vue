@@ -20,6 +20,7 @@
       </mdc-card>
       <mdc-fab v-if="token" icon="edit" class="fab-edit" @click="onEdit"></mdc-fab>
       <mdc-fab v-if="token" icon="delete" class="fab-del" @click="onDelete"></mdc-fab>
+      <mdc-snackbar ref="snackbar"/>
     </main>
 
   </mdc-layout-app>
@@ -79,7 +80,16 @@
           this.$router.push({path:'/edit'})
         },
         onDelete(){
-
+          this.$http.delete("/api/article/del/"+this.article.Name+"?token="+this.token)
+            .then(r=>{
+              if (r.data.status === 'no authorized') {
+                this.$router.push({path:"/login"})
+              }else if (r.data.status === 'success') {
+                this.$router.push({path:"/"})
+              }else{
+                this.$refs.snackbar.show({message: '删除失败!'})
+              }
+            })
         },
         saveData(){
           let article = {
